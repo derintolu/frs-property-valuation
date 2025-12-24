@@ -1,0 +1,83 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --brand-primary-blue: #2563eb;
+  --brand-rich-teal: #2dd4da;
+  --brand-slate: #444B57;
+  --brand-steel-blue: #405C7A;
+  --brand-electric-blue: #2563EB;
+  --brand-cyan: #2DD4DA;
+  --brand-light-blue: #7DB3E8;
+  --brand-powder-blue: #B6C7D9;
+  --brand-pale-blue: #C3D9F1;
+  --brand-light-gray: #DADEE3;
+  --brand-off-white: #F8F7F9;
+  --brand-page-background: #FAFAFA;
+  --brand-pure-white: #FFFFFF;
+  --brand-navy: #263042;
+}
+
+/* Property Valuation Widget Container */
+#frs-pv-root {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+}
+
+/* Form styling */
+#frs-pv-root .pv-form-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+/* Card styling */
+#frs-pv-root .pv-card {
+  background: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+}
+
+/* Button styling */
+#frs-pv-root button.pv-submit {
+  background-color: var(--brand-electric-blue);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.375rem;
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+
+#frs-pv-root button.pv-submit:hover {
+  background-color: #1d4ed8;
+}
+
+#frs-pv-root button.pv-submit:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Remove all inner borders/outlines from form fields */
+#frs-pv-root input,
+#frs-pv-root select,
+#frs-pv-root textarea,
+#frs-pv-root button[role="combobox"] {
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+#frs-pv-root input:focus,
+#frs-pv-root input:focus-visible,
+#frs-pv-root select:focus,
+#frs-pv-root select:focus-visible,
+#frs-pv-root textarea:focus,
+#frs-pv-root textarea:focus-visible,
+#frs-pv-root button[role="combobox"]:focus,
+#frs-pv-root button[role="combobox"]:focus-visible {
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  ring: none !important;
+}

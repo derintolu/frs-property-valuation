@@ -1,0 +1,11 @@
+{
+  "src/widget/main.tsx": {
+    "file": "assets/widget.js",
+    "name": "main",
+    "src": "src/widget/main.tsx",
+    "isEntry": true,
+    "css": [
+      "assets/main.css"
+    ]
+  }
+}

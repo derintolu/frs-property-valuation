@@ -297,3 +297,56 @@ function frs_property_valuation(): FRS_Property_Valuation {
 }
 
 frs_property_valuation();
+
+/**
+ * Global helper for property lookup via Rentcast API
+ *
+ * This function is used by frs-lead-pages to lookup property details.
+ * Returns property data from Rentcast or WP_Error on failure.
+ *
+ * @param string $address Property address to lookup.
+ * @return array|WP_Error Property data or error.
+ */
+function lrh_rentcast_property_lookup( string $address ) {
+	$plugin = frs_property_valuation();
+
+	if ( ! $plugin->is_configured() ) {
+		return new WP_Error( 'not_configured', 'Rentcast API key is not configured' );
+	}
+
+	// Create a mock REST request to use the existing valuation method
+	$request = new WP_REST_Request( 'GET', '/frs-property-valuation/v1/valuation' );
+	$request->set_param( 'address', $address );
+
+	$response = $plugin->get_valuation( $request );
+
+	if ( is_wp_error( $response ) ) {
+		return $response;
+	}
+
+	// If it's a WP_REST_Response, extract the data
+	if ( $response instanceof WP_REST_Response ) {
+		$data = $response->get_data();
+
+		// Transform Rentcast response to the format frs-lead-pages expects
+		return [
+			'success' => true,
+			'data'    => [
+				'address'        => $address,
+				'price'          => $data['price'] ?? $data['priceEstimate'] ?? '',
+				'priceHigh'      => $data['priceRangeHigh'] ?? '',
+				'priceLow'       => $data['priceRangeLow'] ?? '',
+				'beds'           => $data['bedrooms'] ?? '',
+				'baths'          => $data['bathrooms'] ?? '',
+				'sqft'           => $data['squareFootage'] ?? '',
+				'yearBuilt'      => $data['yearBuilt'] ?? '',
+				'propertyType'   => $data['propertyType'] ?? '',
+				'lastSaleDate'   => $data['lastSaleDate'] ?? '',
+				'lastSalePrice'  => $data['lastSalePrice'] ?? '',
+				'raw'            => $data,
+			],
+		];
+	}
+
+	return $response;
+}

@@ -1,15 +1,18 @@
 <?php
 /**
  * Plugin Name: FRS Property Valuation
- * Plugin URI: https://21stcenturylending.com
+ * Plugin URI: https://myhub21.com
  * Description: Professional property valuation tool powered by Rentcast API. Generates beautiful landing pages with property values, rent estimates, and market statistics.
  * Version: 1.0.0
- * Author: 21st Century Lending
- * Author URI: https://21stcenturylending.com
- * License: GPL-2.0+
+ * Author: Derin Tolu / FRS Brand Experience Teams
+ * Author URI: https://myhub21.com
+ * License: GPL-2.0-or-later
+ * License URI: https://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain: frs-property-valuation
+ * Domain Path: /languages
  * Requires at least: 6.4
  * Requires PHP: 8.1
+ * Network: true
  */
 
 if ( ! defined( 'ABSPATH' ) ) {

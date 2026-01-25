@@ -3,7 +3,7 @@
  * Plugin Name: FRS Property Valuation
  * Plugin URI: https://myhub21.com
  * Description: Professional property valuation tool powered by Rentcast API. Generates beautiful landing pages with property values, rent estimates, and market statistics.
- * Version: 1.0.0
+ * Version: 1.0.1
  * Author: Derin Tolu / FRS Brand Experience Teams
  * Author URI: https://myhub21.com
  * License: GPL-2.0-or-later
